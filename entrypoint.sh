@@ -37,6 +37,7 @@ new_tag="v$new_tag"
 
 setOutput "new_tag" "$new_tag"
 setOutput "last_tag" "$last_tag"
+setOutput "part" "$bump"
 
 git tag "$new_tag" || exit 1
 git push origin "$new_tag" || exit 1
