@@ -2,6 +2,8 @@
 
 set -eo pipefail
 
+git config --global --add safe.directory /github/workspace
+
 default_bump="patch"
 bump=${BUMP:-$default_bump}
 
