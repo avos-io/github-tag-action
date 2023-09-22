@@ -11,6 +11,7 @@ setOutput() {
     echo "${1}=${2}" >> "${GITHUB_OUTPUT}"
 }
 
+# this fetch _should_ be redundant - but is useful for debugging if nothing else
 git fetch --tags
 
 tagFmt="^v?[0-9]+\.[0-9]+\.[0-9]+$"
