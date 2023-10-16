@@ -11,9 +11,13 @@ setOutput() {
     echo "${1}=${2}" >> "${GITHUB_OUTPUT}"
 }
 
-# this fetch is useful for debugging too
-git fetch
-git checkout origin/main
+# this fetch is useful for debugging
+git fetch --tags
+
+# Make sure you have the latest changes on the branch.
+# Needed for the make-release job which pushes a new commit before this.
+# A bit hacky - we'd rather pass in a optional commit hash to tag.
+git pull
 
 tagFmt="^v?[0-9]+\.[0-9]+\.[0-9]+$"
 
